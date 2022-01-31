@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -38,6 +40,10 @@ class ResourceEcxeptionHandlerTest {
         assertEquals(StandardError.class, response.getBody().getClass());
         assertEquals(ID_NOT_FOUND, response.getBody().getError());
         assertEquals(404, response.getBody().getStatus());
+        assertNotEquals("/user/2", response.getBody().getPath());
+        assertEquals(LocalDateTime.now(), response.getBody().getTimestamp());
+        //assertNotEquals(LocalDateTime.now(), response.getBody().getTimestamp());
+
     }
 
     @Test
