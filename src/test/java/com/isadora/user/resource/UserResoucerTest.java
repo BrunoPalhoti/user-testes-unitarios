@@ -53,7 +53,7 @@ class UserResoucerTest {
     }
 
     @Test
-    void whenFindByIdThenReturnSuccess() {// findById
+    void whenFindByIdThenReturnSuccess() {// método findById
         when(userService.findById(anyInt())).thenReturn(user);
         when(mapper.map(any(), any())).thenReturn(userDto);
 
@@ -71,7 +71,7 @@ class UserResoucerTest {
     }
 
     @Test
-    void whenFindAllThenReturnAListOfUserDTO() { // findAll
+    void whenFindAllThenReturnAListOfUserDTO() { // método findAll
         when(userService.findAll()).thenReturn(List.of(user));
         when(mapper.map(any(), any())).thenReturn(userDto);
 
@@ -91,7 +91,7 @@ class UserResoucerTest {
     }
 
     @Test
-    void  whenCreateThenReturnCreated() {// create
+    void  whenCreateThenReturnCreated() {// método create
         when(userService.create(any())).thenReturn(user);
 
         ResponseEntity<UserDto> response = userResoucer.create(userDto);
@@ -102,7 +102,7 @@ class UserResoucerTest {
     }
 
     @Test
-    void whenUpdateThenReturnSuccess() {// update
+    void whenUpdateThenReturnSuccess() {// método update
         when(userService.update(userDto)).thenReturn(user);
         when(mapper.map(any(), any())).thenReturn(userDto);
 
@@ -120,7 +120,7 @@ class UserResoucerTest {
     }
 
     @Test
-    void whenDeleteThenReturnSuccess() {// delete
+    void whenDeleteThenReturnSuccess() {// método delete
         doNothing().when(userService).delete(anyInt());
 
         ResponseEntity<UserDto> response = userResoucer.delete(ID);
